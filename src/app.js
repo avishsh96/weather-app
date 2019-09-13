@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const Port = 3000;
+const Port = process.env.PORT || 3000;
 const hbs = require('hbs');
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
@@ -79,6 +79,7 @@ app.get('*',(req,res)=>{
         errorMessage:'Page not found'
     })
 })
+
 app.listen(Port, ()=>{
     console.log(`Server is UP!! on Port ${Port}.`)
 })
